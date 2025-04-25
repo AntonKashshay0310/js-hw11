@@ -2,43 +2,58 @@
 // 1
 
 let bankAccount = {
-    ownerName: "Іван",
-    accountNumber: "UA123456789",
-    balance: 1000
-  };
-  
-  let add = confirm("Поповнити рахунок?");
-  if (add) {
-    let sum = prompt("Скільки додати?");
+  ownerName: "Іван",
+  accountNumber: "UA123456789",
+  balance: 1000,
+
+  deposit: function () {
+    let sum = prompt("Скільки хочеш додати?");
     sum = Number(sum);
     bankAccount.balance = bankAccount.balance + sum;
     alert("Баланс зараз: " + bankAccount.balance + " грн");
-  }
-  
-  let take = confirm("Зняти гроші?");
-  if (take) {
-    let amount = prompt("Скільки зняти?");
+  },
+
+  withdraw: function () {
+    let amount = prompt("Скільки хочеш зняти?");
     amount = Number(amount);
     bankAccount.balance = bankAccount.balance - amount;
     alert("Баланс зараз: " + bankAccount.balance + " грн");
   }
+};
 
+let doDeposit = confirm("Поповнити рахунок?");
+if (doDeposit) {
+  bankAccount.deposit();
+}
+
+let doWithdraw = confirm("Зняти гроші?");
+if (doWithdraw) {
+  bankAccount.withdraw();
+}
 // 2
 
 let weather = {
-    temperature: 0,
-    humidity: 60,
-    windSpeed: 10
-  };
+  temperature: 0,
+  humidity: 60,
+  windSpeed: 10,
 
-  let temp = prompt("Введи температуру:");
-  weather.temperature = Number(temp);
-  
-  if (weather.temperature < 0) {
-    alert("Температура нижче 0 градусів Цельсія");
-  } else {
-    alert("Температура 0 або вище градусів Цельсія");
+  checkCold: function () {
+    if (weather.temperature < 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
+};
+
+let temp = prompt("Введи температуру:");
+weather.temperature = Number(temp);
+
+if (weather.checkCold()) {
+  alert("Температура нижче 0 градусів Цельсія");
+} else {
+  alert("Температура 0 або вище градусів Цельсія");
+}
 
 // 3
 let user = {
