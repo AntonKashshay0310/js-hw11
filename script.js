@@ -9,14 +9,14 @@ let bankAccount = {
   deposit: function () {
     let sum = prompt("Скільки хочеш додати?");
     sum = Number(sum);
-    bankAccount.balance = bankAccount.balance + sum;
+    this.balance = this.balance + sum;
     alert("Баланс зараз: " + bankAccount.balance + " грн");
   },
 
   withdraw: function () {
     let amount = prompt("Скільки хочеш зняти?");
     amount = Number(amount);
-    bankAccount.balance = bankAccount.balance - amount;
+    this.balance = this.balance - amount;
     alert("Баланс зараз: " + bankAccount.balance + " грн");
   }
 };
@@ -38,7 +38,7 @@ let weather = {
   windSpeed: 10,
 
   checkCold: function () {
-    if (weather.temperature < 0) {
+    if (this.temperature < 0) {
       return true;
     } else {
       return false;
@@ -64,7 +64,7 @@ let user = {
     login: function () {
       let inputEmail = prompt("Введи email:");
       let inputPassword = prompt("Введи пароль:");
-      if (inputEmail === user.email && inputPassword === user.password) {
+      if (inputEmail === this.email && inputPassword === this.password) {
         alert("Вхід успішний!");
       } else {
         alert("Email або пароль неправильні.");
@@ -82,7 +82,7 @@ let movie = {
   rating: 9.0,
 
   isGoodMovie: function () {
-    if (movie.rating > 8) {
+    if (this.rating > 8) {
       return true;
     } else {
       return false;
